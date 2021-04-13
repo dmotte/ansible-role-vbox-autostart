@@ -5,8 +5,7 @@
 
 Ansible role to setup **automatic startup** of **VirtualBox VMs** at system boot.
 
-TODO https://kifarunix.com/autostart-virtualbox-vms-on-system-boot-on-linux/
-TODO oefenweb.virtualbox
+This role is inspired by the following article: [AutoStart VirtualBox VMs on System Boot on Linux - kifarunix.com](https://kifarunix.com/autostart-virtualbox-vms-on-system-boot-on-linux/).
 
 ## Usage
 
@@ -17,17 +16,22 @@ TODO oefenweb.virtualbox
    - name: Include the dmotte.vbox_autostart role
      include_role: { name: dmotte.vbox_autostart }
      vars:
-       TODO username: TODO
-       TODO vms list: TODO
+       vbox_vms:
+         - MyVirtualMachine01
+         - AnotherVM02
    ```
+
+> **Note**: if you want to automate also the *VirtualBox* installation on the host, you can use the [oefenweb.virtualbox](https://galaxy.ansible.com/oefenweb/virtualbox) role.
 
 ### Role variables
 
-TODO
+Variable   | Description
+---------- | ---
+`vbox_vms` | List of the names of the VMs to autostart
 
 ## Development
 
-If you want to contribute to this project, you can use the `playbook.yml` file to test the role while editing it.
+If you want to contribute to this project, you can use the `tests/playbook.yml` file to test the role while editing it.
 
 First of all, **clone this repository** on your local machine:
 
@@ -36,6 +40,8 @@ git clone https://github.com/dmotte/ansible-role-vbox-autostart.git
 ```
 
 Then place your inventory file (e.g. `hosts.yml`) inside the `tests` folder.
+
+Edit the `vars` section of the `tests/playbook.yml` file to match your scenario.
 
 Finally, you can **execute the playbook** against your host:
 

@@ -1,20 +1,21 @@
 - name: Ensure the VBOXAUTOSTART_DB variable is set correctly
+  become: yes
   lineinfile:
     path: /etc/default/virtualbox
     regexp: "^VBOXAUTOSTART_DB="
     line: VBOXAUTOSTART_DB=/etc/vbox
     create: yes
-  vars: { ansible_become: yes }
 
 - name: Ensure the VBOXAUTOSTART_CONFIG variable is set correctly
+  become: yes
   lineinfile:
     path: /etc/default/virtualbox
     regexp: "^VBOXAUTOSTART_CONFIG="
     line: VBOXAUTOSTART_CONFIG=/etc/vbox/autostartvm.cfg
     create: yes
-  vars: { ansible_become: yes }
 
 - name: Ensure the autostartvm.cfg file exists and has the right content
+  become: yes
   copy:
     content: |
       default_policy = deny
@@ -23,22 +24,22 @@
         startup_delay = 10
       }
     dest: /etc/vbox/autostartvm.cfg
-  vars: { ansible_become: yes }
 
-- name: Add the user to the vboxusers group # Equivalent to "usermod -aG groupname username"
+- name: Add the user to the vboxusers group
+  # Equivalent to "usermod -aG vboxusers {{ansible_user}}"
+  become: yes
   user:
     name: "{{ansible_user}}"
     groups: [vboxusers] # It's important to use the "groups" parameter instead of "group"
     append: yes
-  vars: { ansible_become: yes }
 
 - name: Ensure the owner group of the /etc/vbox dir is vboxusers and has write permissions
+  become: yes
   file:
     path: /etc/vbox
     group: vboxusers
     mode: g+w
     recurse: yes
-  vars: { ansible_become: yes }
 
 - name: Set the VirtualBox autostartdbpath property
   shell:
@@ -46,5 +47,5 @@
 
 - name: Enable autostart on the virtual machines
   shell:
-    cmd: VBoxManage modifyvm {{item.name}} --autostart-enabled on
-  loop: "{{vms.values() | list}}"
+    cmd: VBoxManage modifyvm {{item}} --autostart-enabled on
+  loop: "{{vbox_vms}}"
