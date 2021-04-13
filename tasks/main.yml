@@ -1,3 +1,4 @@
+---
 - name: Ensure the VBOXAUTOSTART_DB variable is set correctly
   become: yes
   lineinfile:
