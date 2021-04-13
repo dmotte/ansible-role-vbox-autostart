@@ -1,0 +1,30 @@
+dependencies: []
+
+galaxy_info:
+  role_name: vbox_autostart
+  author: dmotte
+  description: Ansible role to setup automatic startup of VirtualBox VMs at system boot
+  license: MIT
+  min_ansible_version: 2.9
+  platforms:
+    - name: Debian
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - all
+  galaxy_tags:
+    - system
+    - vbox
+    - virtual
+    - virtualbox
+    - vm
+    - vms
+    - machine
+    - boot
+    - machines
+    - startup
+    - auto
+    - start
+    - automatic
+    - autostart
