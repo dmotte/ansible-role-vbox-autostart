@@ -21,6 +21,10 @@ TODO oefenweb.virtualbox
        TODO vms list: TODO
    ```
 
+### Role variables
+
+TODO
+
 ## Development
 
 If you want to contribute to this project, you can use the `playbook.yml` file to test the role while editing it.
