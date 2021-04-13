@@ -39,7 +39,6 @@
     path: /etc/vbox
     group: vboxusers
     mode: g+w
-    recurse: yes
 
 - name: Reset the Ansible SSH connection to reload the current user's permissions
   meta: reset_connection

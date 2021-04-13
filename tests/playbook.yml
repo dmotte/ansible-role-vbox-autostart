@@ -4,6 +4,6 @@
 
   tasks:
     - name: Include the role from the parent directory
-      include_role: { name: "{{playbook_dir | dirname}}" }
+      include_role: { name: "{{ playbook_dir | dirname }}" }
       vars:
         vbox_vms: [DebVM01]
