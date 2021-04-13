@@ -41,6 +41,9 @@
     mode: g+w
     recurse: yes
 
+- name: Reset the Ansible SSH connection to reload the current user's permissions
+  meta: reset_connection
+
 - name: Set the VirtualBox autostartdbpath property
   shell:
     cmd: VBoxManage setproperty autostartdbpath /etc/vbox/
