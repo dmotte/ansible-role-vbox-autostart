@@ -20,17 +20,17 @@
   copy:
     content: |
       default_policy = deny
-      {{ansible_user}} = {
+      {{ ansible_user }} = {
         allow = true
         startup_delay = 10
       }
     dest: /etc/vbox/autostartvm.cfg
 
 - name: Add the user to the vboxusers group
-  # Equivalent to "usermod -aG vboxusers {{ansible_user}}"
+  # Equivalent to "usermod -aG vboxusers {{ ansible_user }}"
   become: yes
   user:
-    name: "{{ansible_user}}"
+    name: "{{ ansible_user }}"
     groups: [vboxusers] # It's important to use the "groups" parameter instead of "group"
     append: yes
 
@@ -50,5 +50,5 @@
 
 - name: Enable autostart on the virtual machines
   shell:
-    cmd: VBoxManage modifyvm {{item}} --autostart-enabled on
-  loop: "{{vbox_vms}}"
+    cmd: VBoxManage modifyvm {{ item }} --autostart-enabled on
+  loop: "{{ vbox_vms }}"
