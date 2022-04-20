@@ -10,7 +10,7 @@ This role is inspired by the following article: [AutoStart VirtualBox VMs on Sys
 ## Usage
 
 1. Install this role using the `ansible-galaxy` CLI tool
-2. You can then include it into the `tasks` section of your *Ansible Playbook* like this:
+2. You can then include it into the `tasks` section of your _Ansible Playbook_ like this:
 
    ```yaml
    - name: Include the dmotte.vbox_autostart role
@@ -21,13 +21,13 @@ This role is inspired by the following article: [AutoStart VirtualBox VMs on Sys
          - AnotherVM02
    ```
 
-> **Note**: if you want to automate also the *VirtualBox* installation on the host, you can use the [oefenweb.virtualbox](https://galaxy.ansible.com/oefenweb/virtualbox) role.
+> **Note**: if you want to automate also the _VirtualBox_ installation on the host, you can use the [oefenweb.virtualbox](https://galaxy.ansible.com/oefenweb/virtualbox) role.
 
 ### Role variables
 
-Variable   | Description
----------- | ---
-`vbox_vms` | List of the names of the VMs to autostart
+| Variable   | Description                               |
+| ---------- | ----------------------------------------- |
+| `vbox_vms` | List of the names of the VMs to autostart |
 
 ## Development
 
