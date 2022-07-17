@@ -33,17 +33,11 @@ This role is inspired by the following article: [AutoStart VirtualBox VMs on Sys
 
 If you want to contribute to this project, you can use the [`test/playbook.yml`](test/playbook.yml) file to test the role while editing it.
 
-First of all, **clone this repository** on your local machine:
-
-```bash
-git clone https://github.com/dmotte/ansible-role-vbox-autostart.git
-```
-
-Then place your inventory file (e.g. `hosts.yml`) inside the `test` folder.
+Place your inventory file (e.g. `hosts.yml`) inside the `test` folder.
 
 Edit the `vars` section of the [`test/playbook.yml`](test/playbook.yml) file to match your scenario.
 
-Finally, you can **execute the playbook** against your host:
+You can then **execute the playbook** against your host:
 
 ```bash
 cd test/
