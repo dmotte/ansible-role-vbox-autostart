@@ -14,7 +14,7 @@ This role is inspired by the following article: [AutoStart VirtualBox VMs on Sys
 
    ```yaml
    - name: Include the dmotte.vbox_autostart role
-     include_role: { name: dmotte.vbox_autostart }
+     ansible.builtin.include_role: { name: dmotte.vbox_autostart }
      vars:
        vbox_vms:
          - MyVirtualMachine01
