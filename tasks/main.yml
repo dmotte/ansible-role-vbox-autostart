@@ -1,22 +1,24 @@
 ---
 - name: Ensure the VBOXAUTOSTART_DB variable is set correctly
-  become: yes
+  become: true
   ansible.builtin.lineinfile:
     path: /etc/default/virtualbox
     regexp: "^VBOXAUTOSTART_DB="
     line: VBOXAUTOSTART_DB=/etc/vbox
-    create: yes
+    create: true
+    mode: "0644"
 
 - name: Ensure the VBOXAUTOSTART_CONFIG variable is set correctly
-  become: yes
+  become: true
   ansible.builtin.lineinfile:
     path: /etc/default/virtualbox
     regexp: "^VBOXAUTOSTART_CONFIG="
     line: VBOXAUTOSTART_CONFIG=/etc/vbox/autostartvm.cfg
-    create: yes
+    create: true
+    mode: "0644"
 
 - name: Ensure the autostartvm.cfg file exists and has the right content
-  become: yes
+  become: true
   ansible.builtin.copy:
     content: |
       default_policy = deny
@@ -25,17 +27,18 @@
         startup_delay = 10
       }
     dest: /etc/vbox/autostartvm.cfg
+    mode: "0644"
 
 - name: Add the user to the vboxusers group
   # Equivalent to "usermod -aG vboxusers {{ ansible_user }}"
-  become: yes
+  become: true
   ansible.builtin.user:
     name: "{{ ansible_user }}"
     groups: [vboxusers] # It's important to use the "groups" parameter instead of "group"
-    append: yes
+    append: true
 
 - name: Ensure the owner group of the /etc/vbox dir is vboxusers and has write permissions
-  become: yes
+  become: true
   ansible.builtin.file:
     path: /etc/vbox
     group: vboxusers
@@ -45,10 +48,14 @@
   ansible.builtin.meta: reset_connection
 
 - name: Set the VirtualBox autostartdbpath property
-  ansible.builtin.shell:
+  ansible.builtin.command:
     cmd: VBoxManage setproperty autostartdbpath /etc/vbox/
+  register: result
+  changed_when: result.rc == 0
 
 - name: Enable autostart on the virtual machines
-  ansible.builtin.shell:
+  ansible.builtin.command:
     cmd: VBoxManage modifyvm {{ item }} --autostart-enabled on
+  register: result
+  changed_when: result.rc == 0
   loop: "{{ vbox_vms }}"

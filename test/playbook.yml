@@ -1,6 +1,7 @@
 #!/usr/bin/env ansible-playbook
 ---
-- hosts: all
+- name: Main play
+  hosts: all
 
   tasks:
     - name: Include the role from the parent directory
