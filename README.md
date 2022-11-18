@@ -13,7 +13,7 @@ This role is inspired by the following article: [AutoStart VirtualBox VMs on Sys
 2. You can then include it into the `tasks` section of your _Ansible Playbook_ like this:
 
    ```yaml
-   - name: Include the dmotte.vbox_autostart role
+   - name: Set up autostart for some VirtualBox VMs
      ansible.builtin.include_role: { name: dmotte.vbox_autostart }
      vars:
        vbox_vms:
