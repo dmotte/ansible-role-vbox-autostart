@@ -1,6 +1,6 @@
 # ansible-role-vbox-autostart
 
-[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/dmotte/ansible-role-vbox-autostart/release.yml?branch=main&logo=github&style=flat-square)](https://github.com/dmotte/ansible-role-vbox-autostart/actions)
+[![GitHub latest release](https://img.shields.io/github/v/release/dmotte/ansible-role-vbox-autostart?logo=github&style=flat-square)](https://github.com/dmotte/ansible-role-vbox-autostart/actions)
 [![Ansible Galaxy](https://img.shields.io/badge/galaxy-dmotte.vbox__autostart-blueviolet?logo=ansible&style=flat-square)](https://galaxy.ansible.com/dmotte/vbox_autostart)
 
 Ansible role to setup **automatic startup** of **VirtualBox VMs** at system boot.
