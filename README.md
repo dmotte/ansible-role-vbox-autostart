@@ -16,9 +16,7 @@ This role is inspired by the following article: [AutoStart VirtualBox VMs on Sys
 
 ### Role variables
 
-| Variable   | Description                               |
-| ---------- | ----------------------------------------- |
-| `vbox_vms` | List of the names of the VMs to autostart |
+See [`defaults/main.yml`](defaults/main.yml).
 
 ## Development
 
