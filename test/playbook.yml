@@ -7,4 +7,6 @@
     - name: Include the role from the parent directory
       ansible.builtin.include_role: { name: "{{ playbook_dir | dirname }}" }
       vars:
-        vbox_vms: [DebVM01]
+        ansible_become: true
+        vbox_autostart_user: "{{ ansible_user_id }}"
+        vbox_autostart_vms: [VMDeb01]
