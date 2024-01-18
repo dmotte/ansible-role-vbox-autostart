@@ -3,6 +3,12 @@
 [![GitHub latest release](https://img.shields.io/github/v/release/dmotte/ansible-role-vbox-autostart?logo=github&style=flat-square)](https://github.com/dmotte/ansible-role-vbox-autostart/actions)
 [![Ansible Galaxy](https://img.shields.io/badge/galaxy-dmotte.vbox__autostart-blueviolet?logo=ansible&style=flat-square)](https://galaxy.ansible.com/dmotte/vbox_autostart)
 
+## :warning: Warning: this project is **no longer maintained** :warning:
+
+I decided to convert the Ansible code [to Bash](https://github.com/dmotte/misc/tree/main/scripts) for simplicity.
+
+---
+
 Ansible role to setup **automatic startup** of **VirtualBox VMs** at system boot.
 
 This role is inspired by the following article: [AutoStart VirtualBox VMs on System Boot on Linux - kifarunix.com](https://kifarunix.com/autostart-virtualbox-vms-on-system-boot-on-linux/).
